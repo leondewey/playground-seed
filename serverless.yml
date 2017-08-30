@@ -1,0 +1,15 @@
+# serverless.yml
+
+service: playground-seed
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  createUser: # Function name
+    handler: handler.users # Reference to file handler.js & exported function 'users'
+    events: # All events associated with this function
+      - http:
+          path: users/show
+          method: get
